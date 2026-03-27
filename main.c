@@ -18,13 +18,10 @@ int main(int argn, char **args){
    // Obtiene el número total de procesos
    MPI_Comm_size(MPI_COMM_WORLD, &size);
    MPI_Get_processor_name(hostname, &len);
-
-   MPI_Barrier(MPI_COMM_WORLD);
    
    printf("Hola mundo soy el proceso %i de %i en %s\n",rank,size,hostname);
 
    // Finaliza MPI
-   MPI_Barrier(MPI_COMM_WORLD);
    
    MPI_Finalize();
    return 0;
