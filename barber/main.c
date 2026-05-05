@@ -19,7 +19,8 @@ int main(int argn, char **argc){
   MPI_Status status;
   int data;
   double a,b,dx,sum,F;
-  double dx_proc;
+  double dx_proc,x_proc;
+  int n;
   MPI_myvar range;
 
   double utime0, stime0, wtime0,
@@ -79,7 +80,7 @@ int main(int argn, char **argc){
         n++;
         F = f(x_proc)*dx_proc;  
         range.F += F;
-      }while(x_proc < range.b)
+      }while(x_proc < range.b);
       //F = f(range.a)*range.dx;
       //range.F = F;
       //printf("%i:[%lf,%lf] dx=%lf F=%lf\n",miproc,range.a,range.b,range.dx,range.F);
